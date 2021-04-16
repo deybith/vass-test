@@ -1,0 +1,40 @@
+<mat-dialog-content class="mat-typography dialog-medium">
+  <mat-card class="detail-user-card">
+    <mat-card-header class="detail-title-user-card">
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{ user.name }}</mat-card-title>
+      <mat-card-subtitle>{{ user.username }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="detail-user-content-card">
+      <h1 class="user-detail-block-title">Datos básicos</h1>
+      <mat-list role="list">
+        <mat-list-item *ngFor="let field of basicData; index as i; first as isFirst" role="listitem">
+          <strong class="key-detail">{{field.label}}: </strong>
+          {{user[field.key]}}
+        </mat-list-item>
+      </mat-list>
+
+      <h1 class="user-detail-block-title">Dirección</h1>
+      <mat-list role="list">
+        <mat-list-item *ngFor="let field of addressData; index as i; first as isFirst" role="listitem">
+          <strong class="key-detail">{{field.label}}: </strong>
+          {{user.address[field.key]}}
+        </mat-list-item>
+      </mat-list>
+
+      <h1 class="user-detail-block-title">Empresa</h1>
+      <mat-list role="list">
+        <mat-list-item *ngFor="let field of companyData; index as i; first as isFirst" role="listitem">
+          <strong class="key-detail">{{field.label}}: </strong>
+          {{user.company[field.key]}}
+        </mat-list-item>
+      </mat-list>
+
+    </mat-card-content>
+  </mat-card>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <a mat-button [mat-dialog-close]="user.id" [routerLink]="'/users/edit/' + user.id">Editar</a>
+  <button mat-button [mat-dialog-close]="user.id" cdkFocusInitial>Ok</button>
+</mat-dialog-actions>

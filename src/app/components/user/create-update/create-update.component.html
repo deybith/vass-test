@@ -1,0 +1,78 @@
+<div class="root">
+  <button mat-raised-button (click)="onSave()" [disabled]="!addressForm.valid||!basicDataForm.valid||!companyForm.valid"
+    color="primary" class="m-4">Guardar</button>
+  <div class="row mt-4 justify-content-md-center">
+    <div class="col-md-8 col-12 mb-4">
+      <div class="card ms-4 card-form p-4">
+        <div class="fs-2 mb-3">
+          <i class="bi bi-person-circle icon-md"></i>
+          Datos básicos
+        </div>
+        <div class="card-body">
+          <form [formGroup]="basicDataForm">
+            <div class="mb-3" *ngFor="let field of userForm.basicData;">
+              <label for="exampleFormControlInput1" class="form-label">{{field.label}}</label>
+              <input type="text" class="form-control" id="exampleFormControlInput1"
+                [ngClass]="{'is-invalid' : basicDataForm.controls[field.key].hasError('required')}"
+                placeholder=" {{ field.placeholder }}" formControlName="{{ field.key }}">
+              <div class="invalid-feedback"
+                *ngIf="basicDataForm.controls[field.key].touched && basicDataForm.controls[field.key].hasError('required')">
+                Por favor ingrese un valor.
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+
+    <div class="col-md-6 col-12 mb-4">
+      <div class="card ms-4 card-form p-4">
+        <div class="fs-2 mb-3">
+          <i class="bi bi-geo icon-md"></i>
+          Dirección
+        </div>
+        <div class="card-body">
+          <form [formGroup]="addressForm">
+            <div class="mb-3" *ngFor="let field of userForm.addressData;">
+              <label for="exampleFormControlInput1" class="form-label">{{field.label}}</label>
+              <input type="text" class="form-control" id="exampleFormControlInput1"
+                [ngClass]="{'is-invalid' : addressForm.controls[field.key].hasError('required')}"
+                placeholder=" {{ field.placeholder }}" formControlName="{{ field.key }}">
+              <div class="invalid-feedback"
+                *ngIf="addressForm.controls[field.key].touched && addressForm.controls[field.key].hasError('required')">
+                Por favor ingrese un valor.
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-12  offten mb-4">
+      <div class="card ms-4 card-form p-4">
+        <div class="fs-2 mb-3">
+          <i class="bi bi-building icon-md"></i>
+          Empresa
+        </div>
+        <div class="card-body">
+          <form [formGroup]="companyForm">
+            <div class="mb-3" *ngFor="let field of userForm.companyData;">
+              <label for="exampleFormControlInput1" class="form-label">{{field.label}}</label>
+              <input type="text" class="form-control" id="exampleFormControlInput1"
+                [ngClass]="{'is-invalid' : companyForm.controls[field.key].hasError('required')}"
+                placeholder=" {{ field.placeholder }}" formControlName="{{ field.key }}">
+              <div class="invalid-feedback"
+                *ngIf="companyForm.controls[field.key].touched && companyForm.controls[field.key].hasError('required')">
+                Por favor ingrese un valor.
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
