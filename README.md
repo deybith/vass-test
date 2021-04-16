@@ -20,9 +20,11 @@ Ejecutar en la raiz del proyecto `ng build` la transpilación del proyecto queda
 
 ## Cosas al resaltar.
 
-Los formularios se crean dinamicamente apartir de un modelo, esto se hace con el fin de evitar duplicar código, tanto en la vista con en la logica componente.
-La vista de detalle de usario se crea dinamicamente apartir del mismo modelo de formulario, esto se realiza para con el mismo fin de menos codigo.
-Se aplican principios de diseño con el fin de que la aplicaión sea escalable y mantenible.
+Los formularios se crean dinámicamente a partir de un modelo, esto se hace con el fin de evitar duplicar código, tanto en la vista como en la lógica componente.
+
+La vista de detalle de usuario se crea dinámicamente a partir del mismo modelo de formulario, esto se realiza para con el mismo fin de menos código. 
+
+Se aplican principios de diseño con el fin de que la aplicación sea escalable y mantenible.
 
 ## Pendiente.
 
